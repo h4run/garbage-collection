@@ -1,0 +1,93 @@
+[
+  {
+    "Id": 1,
+    "Name": "13:30 Vardiyası",
+    "Vehicle": "Fenertepe",
+    "Time": "07:30",
+    "Driver": "Tanır Nalbant",
+    "Helper": "",
+    "Performance": {
+      "current": 66,
+      "total": 103
+    },
+    "Status": "Dispatched"
+  },
+  {
+    "Id": 2,
+    "Name": "13:30 Vardiyası",
+    "Vehicle": "Boğazköy",
+    "Time": "13:11",
+    "Driver": "Selçuk Yurt",
+    "Helper": "",
+    "Performance": {
+      "current": 58,
+      "total": 85
+    },
+    "Status": "Finished"
+  },
+  {
+    "Id": 3,
+    "Name": "07:30 Vardiyası",
+    "Vehicle": "Başakşehir",
+    "Time": "07:30",
+    "Driver": "Emri Akça",
+    "Helper": "",
+    "Performance": {
+      "current": 108,
+      "total": 148
+    },
+    "Status": "Finished"
+  },
+  {
+    "Id": 4,
+    "Name": "07:30 Vardiyası",
+    "Vehicle": "4.5. Etap",
+    "Time": "07:30",
+    "Driver": "Yaşar Demir",
+    "Helper": "",
+    "Performance": {
+      "current": 121,
+      "total": 138
+    },
+    "Status": "Finished"
+  },
+  {
+    "Id": 5,
+    "Name": "07:30 Vardiyası",
+    "Vehicle": "Kayaşehir",
+    "Time": "07:30",
+    "Driver": "Ömer Osman Ekiz",
+    "Helper": "",
+    "Performance": {
+      "current": 97,
+      "total": 146
+    },
+    "Status": "Finished"
+  },
+  {
+    "Id": 6,
+    "Name": "07:30 Vardiyası",
+    "Vehicle": "Bahçeşehir",
+    "Time": "07:30",
+    "Driver": "Murat Uçanoğlu",
+    "Helper": "",
+    "Performance": {
+      "current": 55,
+      "total": 107
+    },
+    "Status": "Finished"
+  },
+  {
+    "Id": 7,
+    "Name": "07:30 Vardiyası",
+    "Vehicle": "Bşk.&Ağa.",
+    "Time": "07:30",
+    "Driver": "Mahmut Mercan",
+    "Helper": "",
+    "Performance": {
+      "current": 52,
+      "total": 98
+    },
+    "Status": "Finished"
+  }
+]
