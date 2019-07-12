@@ -4,7 +4,7 @@ import { Row, Column } from "../Grid";
 
 import Filter from "./Filter";
 
-import routes from "../../../../data/routes.json";
+import routes from "../../../data/routes.json";
 
 export default class Filters extends React.Component {
   state = { data: {} };

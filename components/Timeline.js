@@ -4,7 +4,7 @@ import Slider from "rc-slider";
 import cx from "classnames";
 import "rc-slider/assets/index.css";
 
-import { getKeyByValue, useInterval } from "../../utils";
+import { getKeyByValue, useInterval } from "../utils";
 
 const convertTimeToMinutes = time =>
   new Date("1970-01-01T" + time + ":00Z").getTime() / 60000;
@@ -75,6 +75,7 @@ export default ({ routes, onChange }) => {
         onChange={e => {
           const index = stepIndexies[e];
           handleChangeStep(index);
+          setRuningState(false);
         }}
       />
     </Container>

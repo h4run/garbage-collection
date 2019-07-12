@@ -2,11 +2,10 @@ import React from "react";
 import Link from "next/link";
 import styled from "styled-components";
 
-import Layout from "../../components/Layout";
-
-import Header from "./Header";
-import Title from "./Title";
-import DataTables from "./DataTables";
+import Layout from "../components/Layout";
+import DataTables from "../components/DataTables";
+import Header from "../components/Header";
+import Title from "../components/Title";
 
 const Home = () => (
   <Layout title="Routes">

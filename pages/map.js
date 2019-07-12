@@ -9,13 +9,12 @@ import {
 } from "react-google-maps";
 import { compose, withProps, lifecycle } from "recompose";
 
-import Layout from "../../components/Layout";
-import Loading from "../../components/Loading";
+import Layout from "../components/Layout";
+import Loading from "../components/Loading";
+import Timeline from "../components/Timeline";
+import MapStats from "../components/MapStats";
 
-import data from "../../data/maps.json";
-
-import Timeline from "./Timeline";
-import MapStats from "./MapStats";
+import data from "../data/maps.json";
 
 const MapComponent = compose(
   withScriptjs,

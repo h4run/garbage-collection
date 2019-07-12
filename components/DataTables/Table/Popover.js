@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import styled from "styled-components";
 
-import { useOutsideClick } from "../../../../utils";
+import { useOutsideClick } from "../../../utils";
 
 export default ({ closeMe, openModal }) => {
   const ref = useRef();

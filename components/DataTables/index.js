@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Filters from "./Filters";
 import Table from "./Table";
 
-import InitialData from "../../../data/routes.json";
+import InitialData from "../../data/routes.json";
 
 export default class DataTables extends React.Component {
   state = { data: [...InitialData] };

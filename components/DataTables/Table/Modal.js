@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { CSSTransition } from "react-transition-group";
 
-import vehicles from "../../../../data/vehicles.json";
+import vehicles from "../../../data/vehicles.json";
 
 export default ({ data, closeMe, onSelect, isVisible }) => (
   <Outer>
