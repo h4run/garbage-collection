@@ -25,6 +25,14 @@ const GlobalStyle = createGlobalStyle`
   #__next {
     height: 100%;
   }
+
+  @media screen and (-webkit-min-device-pixel-ratio:0) {
+    select,
+    textarea,
+    input {
+      font-size: 16px;
+    }
+  }
 `;
 
 export default GlobalStyle;

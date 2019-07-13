@@ -8,7 +8,7 @@ import InitialData from "../../data/routes.json";
 
 export default () => {
   const [data, setData] = useState(InitialData);
-  const [filtersIsVisible, setFiltersIsVisible] = useState(true);
+  const [filtersIsVisible, setFiltersIsVisible] = useState(false);
   const _toggleFilters = () => setFiltersIsVisible(!filtersIsVisible);
   const _filterOnChange = filters =>
     setData(
@@ -42,10 +42,11 @@ const FiltersContainer = styled.div`
   margin-top: 30px;
   @media screen and (max-width: 500px) {
     margin-top: 15px;
+    .wrap {
+      display: ${props => (props.isVisible ? "block" : "none")};
+    }
   }
-  .wrap {
-    display: ${props => (props.isVisible ? "block" : "none")};
-  }
+
   .toggle-btn {
     display: none;
   }
