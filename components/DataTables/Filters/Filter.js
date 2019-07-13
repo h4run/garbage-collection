@@ -73,6 +73,9 @@ const Container = styled.div`
   }
   .input-holder  {
     padding: 15px 25px 20px 0;
+    @media screen and (max-width: 500px) {
+      padding: 5px 0 15px 0;
+    }
   }
   input {
     border: 1px solid #ccd0d9;
