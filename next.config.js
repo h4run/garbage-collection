@@ -1,11 +1,6 @@
 const withPlugins = require("next-compose-plugins");
 const css = require("@zeit/next-css");
 const fonts = require("next-fonts");
-const dotEnvResult = require("dotenv").config();
-
-if (dotEnvResult.error) {
-  throw dotEnvResult.error;
-}
 
 module.exports = withPlugins([css, fonts], {
   enableSvg: true,

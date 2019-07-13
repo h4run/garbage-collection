@@ -62,7 +62,7 @@ const Container = styled.div`
   .back-btn {
     font-size: 18px;
     font-weight: 500;
-    display: flex;
+    display: inline-flex;
     align-items: center;
 
     &:hover {
