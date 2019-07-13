@@ -30,7 +30,7 @@ const GlobalStyle = createGlobalStyle`
     select,
     textarea,
     input {
-      font-size: 16px;
+      font-size: 16px !important;
     }
   }
 `;
