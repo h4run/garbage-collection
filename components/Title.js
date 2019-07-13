@@ -12,7 +12,7 @@ export default () => (
 
 const Container = styled.div`
   margin-top: 20px;
-  margin-bottom: 30px;
+
   .title {
     font-size: 26px;
     margin: 0 0 18px 0;

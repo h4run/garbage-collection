@@ -24,6 +24,10 @@ const Container = styled.div`
   border: 1px solid #c5c5c5;
   background-color: #fdfdfd;
   z-index: 5;
+  @media screen and (max-width: 500px) {
+    right: 0;
+    left: auto;
+  }
 `;
 
 const Item = styled.a.attrs({ href: "javascript:;" })`

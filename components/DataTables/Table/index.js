@@ -16,6 +16,7 @@ export default ({ data, onChangeVehicle }) => (
 );
 
 const Container = styled.div`
+  margin-top: 20px;
   .item-enter {
     opacity: 0;
   }

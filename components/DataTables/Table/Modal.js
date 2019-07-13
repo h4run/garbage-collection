@@ -16,7 +16,9 @@ export default ({ data, closeMe, onSelect, isVisible }) => (
 
         <div className="content-wrapper">
           <div className="header">
-            <h2>{[data.Vehicle, data.Name, data.Driver].join(" - ")}</h2>
+            <h2 className="title">
+              {[data.Vehicle, data.Name, data.Driver].join(" - ")}
+            </h2>
             <a href="javascript:;" onClick={closeMe}>
               <i className="icon-close"></i>
             </a>
@@ -94,6 +96,13 @@ const Container = styled.div`
     justify-content: space-between;
     padding: 20px 14px 20px 30px;
     border-bottom: 1px solid #f2f2f2;
+    @media screen and (max-width: 500px) {
+      padding: 10px;
+      .title {
+        font-size: 18px;
+        line-height: 1.4em;
+      }
+    }
     .icon-close {
       padding: 5px;
       font-size: 14px;
@@ -102,6 +111,9 @@ const Container = styled.div`
   }
   .content  {
     padding: 15px;
+    @media screen and (max-width: 500px) {
+      padding: 10px;
+    }
   }
 
   .list-wrapper {
@@ -111,12 +123,19 @@ const Container = styled.div`
       display: flex;
       flex-direction: column;
       justify-content: center;
+      @media screen and (max-width: 500px) {
+        font-size: 16px;
+      }
     }
     .title,
     ul li {
       height: 44px;
       padding-left: 24px;
       padding-right: 24px;
+      @media screen and (max-width: 500px) {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
     }
     ul {
       margin: 0;
@@ -150,9 +169,12 @@ const Container = styled.div`
   }
 
   .content-wrapper  {
-    min-width: 600px;
+    width: 600px;
     background-color: white;
     z-index: 5;
     position: relative;
+    @media screen and (max-width: 500px) {
+      width: 90%;
+    }
   }
 `;

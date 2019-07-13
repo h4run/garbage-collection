@@ -72,9 +72,9 @@ const Container = styled.div`
     }
   }
   .input-holder  {
-    padding: 15px 25px 20px 0;
+    padding: 15px 25px 0 0;
     @media screen and (max-width: 500px) {
-      padding: 5px 0 15px 0;
+      padding: 5px 0 0 0;
     }
   }
   input {

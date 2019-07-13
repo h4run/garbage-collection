@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { Row, Column } from "../Grid";
+import Grid from "../Grid";
 
 import Filter from "./Filter";
 
@@ -43,3 +43,17 @@ export default class Filters extends React.Component {
     );
   }
 }
+
+const Row = styled(Grid.Row)`
+  @media screen and (max-width: 500px) {
+    margin-left: -8px;
+    margin-right: -8px;
+  }
+`;
+const Column = styled(Grid.Column)`
+  @media screen and (max-width: 500px) {
+    &:nth-child(n + 3) {
+      margin-top: 20px;
+    }
+  }
+`;

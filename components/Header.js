@@ -43,7 +43,8 @@ export default () => {
 const FilterArea = styled.div`
   display: flex;
   align-items: center;
-
+  flex-grow: 1;
+  padding-right: 20px;
   .map-link {
     margin-right: 10px;
     margin-top: 5px;
@@ -79,6 +80,9 @@ const FilterArea = styled.div`
     padding-left: 12px;
     padding-right: 12px;
     padding-top: 4px;
+    @media screen and (max-width: 500px) {
+      width: 100%;
+    }
   }
 
   .submit {
@@ -117,5 +121,4 @@ const Add = styled.a.attrs({ href: "javascript:;" })`
 
 const Container = styled.header`
   display: flex;
-  justify-content: space-between;
 `;
