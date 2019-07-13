@@ -1,5 +1,5 @@
 {
-  "name": "evreka",
+  "name": "garbage-collection",
   "scripts": {
     "dev": "next",
     "build": "next build",

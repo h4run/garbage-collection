@@ -22,7 +22,7 @@ export default ({ routes, onChange }) => {
     const step =
       (convertTimeToMinutes(time) - startTime) * (100 / totalMinutes);
     stepIndexies[step] = index;
-    return { ...acc, [parseFloat(step)]: time };
+    return { ...acc, [step]: time };
   }, {});
 
   const handleChangeStep = index => {
