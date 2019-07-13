@@ -68,6 +68,7 @@ export default ({ routes, onChange }) => {
         />
       </a>
       <Slider
+        step={null}
         marks={marks}
         value={getKeyByValue(stepIndexies, currentIndex)}
         onChange={e => {
