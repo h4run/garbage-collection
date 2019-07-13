@@ -26,10 +26,9 @@ const GlobalStyle = createGlobalStyle`
     height: 100%;
   }
 
-  @media screen and (-webkit-min-device-pixel-ratio:0) {
-    select,
-    textarea,
-    input {
+  @media screen and (-webkit-min-device-pixel-ratio:0) and (max-width:500px) {
+    input[type="text"] {
+       -webkit-appearance: none;
       font-size: 16px !important;
     }
   }
