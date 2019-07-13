@@ -2,7 +2,6 @@ import { useState } from "react";
 import styled from "styled-components";
 import Slider from "rc-slider";
 import cx from "classnames";
-import "rc-slider/assets/index.css";
 
 import { getKeyByValue, useInterval } from "../utils";
 
@@ -23,7 +22,7 @@ export default ({ routes, onChange }) => {
     const step =
       (convertTimeToMinutes(time) - startTime) * (100 / totalMinutes);
     stepIndexies[step] = index;
-    return { ...acc, [step]: time };
+    return { ...acc, [parseFloat(step)]: time };
   }, {});
 
   const handleChangeStep = index => {
@@ -70,7 +69,6 @@ export default ({ routes, onChange }) => {
       </a>
       <Slider
         marks={marks}
-        step={null}
         value={getKeyByValue(stepIndexies, currentIndex)}
         onChange={e => {
           const index = stepIndexies[e];

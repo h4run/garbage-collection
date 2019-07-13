@@ -2,19 +2,18 @@ import React from "react";
 import Link from "next/link";
 import styled from "styled-components";
 
-import Layout from "../components/Layout";
+import MetaTitle from "../components/MetaTitle";
 import DataTables from "../components/DataTables";
 import Header from "../components/Header";
 import Title from "../components/Title";
 
-const Home = () => (
-  <Layout title="Routes">
-    <Container>
-      <Header />
-      <Title />
-      <DataTables />
-    </Container>
-  </Layout>
+export default () => (
+  <Container>
+    <MetaTitle data="Routes" />
+    <Header />
+    <Title />
+    <DataTables />
+  </Container>
 );
 
 const Container = styled.div`
@@ -22,5 +21,3 @@ const Container = styled.div`
   overflow-y: scroll;
   height: 100%;
 `;
-
-export default Home;

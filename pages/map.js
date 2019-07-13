@@ -1,111 +1,16 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
-import {
-  withScriptjs,
-  withGoogleMap,
-  GoogleMap,
-  Marker,
-  DirectionsRenderer
-} from "react-google-maps";
-import { compose, withProps, lifecycle } from "recompose";
+import Link from "next/link";
 
-import Layout from "../components/Layout";
+import MetaTitle from "../components/MetaTitle";
 import Loading from "../components/Loading";
 import Timeline from "../components/Timeline";
+import GoogleMap from "../components/GoogleMap";
 import MapStats from "../components/MapStats";
 
 import data from "../data/maps.json";
 
-const MapComponent = compose(
-  withScriptjs,
-  withGoogleMap,
-  lifecycle({
-    componentDidMount() {
-      const DirectionsService = new google.maps.DirectionsService();
-
-      const waypoints = data[0].routes
-        .filter((a, index) => index > 0 && index != data[0].routes.length - 1)
-        .map(r => ({ location: r.position, stopover: true }));
-
-      DirectionsService.route(
-        {
-          origin: data[0].routes[0].position,
-          destination: data[0].routes[data[0].routes.length - 1].position,
-          waypoints,
-          travelMode: google.maps.TravelMode.DRIVING
-        },
-        (result, status) => {
-          if (status === google.maps.DirectionsStatus.OK) {
-            this.setState({
-              directions: result
-            });
-
-            const locations = result.routes[0].legs.map(d => ({
-              lat: d.end_location.lat(),
-              lng: d.end_location.lng()
-            }));
-          } else {
-            console.error(`error fetching directions ${result}`);
-          }
-        }
-      );
-    }
-  })
-)(({ currentRouteIndex, directions }) => (
-  <GoogleMap
-    defaultOptions={{
-      mapTypeControl: false,
-      zoomControl: false,
-      fullscreenControl: false,
-      streetViewControl: false
-    }}
-  >
-    {directions && (
-      <DirectionsRenderer
-        defaultOptions={{
-          suppressMarkers: true
-        }}
-        directions={directions}
-      />
-    )}
-    {data[0].routes.map(({ position }, index) => {
-      let markerIcon = "garbage";
-      let markerSize = 30;
-      if (index === 0) {
-        markerIcon = "start";
-        markerSize = 60;
-      } else if (index === data[0].routes.length - 1) {
-        markerIcon = "finish";
-        markerSize = 50;
-      } else if (currentRouteIndex >= index) {
-        markerIcon = "garbage-ok";
-      }
-      return (
-        <Marker
-          zIndex={1}
-          position={position}
-          icon={{
-            url: `/static/${markerIcon}.svg`,
-            scaledSize: { width: markerSize, height: markerSize }
-          }}
-          key={Object.values(position).join(", ")}
-        />
-      );
-    })}
-
-    {/*truck*/}
-    <Marker
-      zIndex={999}
-      icon={{
-        url: `/static/truck.svg`,
-        scaledSize: { width: 42, height: 42 }
-      }}
-      position={data[0].routes[currentRouteIndex].position}
-    />
-  </GoogleMap>
-));
-
-const Map = () => {
+export default () => {
   const [currentRouteIndex, setCurrentRouteIndex] = useState(0);
   const handleChangeTimeLine = index => setCurrentRouteIndex(index);
 
@@ -117,21 +22,31 @@ const Map = () => {
   };
 
   return (
-    <Layout title="Map">
-      <Container>
-        <MapWrapper>
-          <MapStats {...statsData} />
-          <MapComponent
-            googleMapURL="https://maps.googleapis.com/maps/api/js?language=en&v=3.exp&libraries=geometry,drawing,places&key=AIzaSyDUJo2mR4OaZW2m6xDsXkCWxz6sw5_Dv10"
-            loadingElement={<Loading />}
-            containerElement={<MapContainer />}
-            mapElement={<MapElement />}
-            currentRouteIndex={currentRouteIndex}
-          />
-        </MapWrapper>
-        <Timeline routes={data[0].routes} onChange={handleChangeTimeLine} />
-      </Container>
-    </Layout>
+    <Container>
+      <MetaTitle data="Map" />
+      <div className="nav">
+        <Link href="/">
+          <a className="back-btn">
+            <i className="icon-arrow-left" />
+            <span>back to routes</span>
+          </a>
+        </Link>
+      </div>
+      <MapWrapper>
+        <MapStats {...statsData} />
+        <GoogleMap
+          googleMapURL={
+            "https://maps.googleapis.com/maps/api/js?language=en&v=3.exp&libraries=geometry,drawing,places&key=" +
+            process.env.GOOGLE_API_KEY
+          }
+          loadingElement={<Loading />}
+          containerElement={<MapContainer />}
+          mapElement={<MapElement />}
+          currentRouteIndex={currentRouteIndex}
+        />
+      </MapWrapper>
+      <Timeline routes={data[0].routes} onChange={handleChangeTimeLine} />
+    </Container>
   );
 };
 
@@ -141,6 +56,26 @@ const Container = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
+  .nav {
+    margin-bottom: 15px;
+  }
+  .back-btn {
+    font-size: 18px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      color: ${props => props.theme.colors.primaryDark};
+    }
+    i {
+      margin-right: 15px;
+      font-size: 0.8em;
+    }
+    span {
+      text-decoration: underline;
+    }
+  }
 `;
 
 const MapWrapper = styled.div`
@@ -159,5 +94,3 @@ const MapContainer = styled.div`
 const MapElement = styled.div`
   height: 100%;
 `;
-
-export default Map;

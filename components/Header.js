@@ -9,7 +9,7 @@ export default () => {
   return (
     <Container>
       <FilterArea>
-        <Link href="/map">
+        <Link href="/map" prefetch>
           <a className="map-link">
             <i className="icon-map" />
           </a>
@@ -45,9 +45,10 @@ const FilterArea = styled.div`
   align-items: center;
 
   .map-link {
+    margin-right: 10px;
+    margin-top: 5px;
     .icon-map {
       font-size: 22px;
-      margin-right: 10px;
     }
     &:hover {
       color: ${props => props.theme.colors.primaryDark};
@@ -77,6 +78,7 @@ const FilterArea = styled.div`
     width: 206px;
     padding-left: 12px;
     padding-right: 12px;
+    padding-top: 4px;
   }
 
   .submit {
